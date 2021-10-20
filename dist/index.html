@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container app">
+      <section class="input__details">
+        <h1>Wallet</h1>
+
+        <div class="operation operation--load-wallet">
+          <h3>Load Wallet</h3>
+          <form class="form form--load-wallet">
+            <label
+              for="load-amount"
+              class="form__label form__label--load-amount"
+              >Amount</label
+            >
+            <input
+              type="number"
+              class="form__input form__input--load-amount"
+              name="load-amount"
+            />
+            <button class="form__btn form__btn--load-amount">&rarr;</button>
+          </form>
+        </div>
+
+        <div class="operation operation--spending">
+          <h3>Expense Detail</h3>
+          <form class="form form--spending">
+            <label for="spend-name" class="form__label">Spending</label>
+            <input
+              type="text"
+              class="form__input form__input--spend-name"
+              name="spend-name"
+            />
+            <label for="spend-amount" class="form__label">Amount</label>
+            <input
+              type="number"
+              class="form__input form__input--spend-amount"
+              name="spend-amount"
+            />
+            <button class="form__btn form__btn--spending">&rarr;</button>
+          </form>
+        </div>
+      </section>
+
+      <div class="balance">
+        <div>
+          <p class="balance__label">Current balance</p>
+          <p class="balance__date">
+            As of <span class="date">05/03/2037</span>
+          </p>
+        </div>
+        <p class="balance__value">$0,000</p>
+        <div class="summary">
+          <p class="summary__label">Total Deposits</p>
+          <p class="summary__value summary__total-load-amount">$0,000</p>
+          <p class="summary__label">Total Expenses</p>
+          <p class="summary__value summary__total-spend-amount">$0,000</p>
+        </div>
+      </div>
+
+      <section class="movements">
+        <div class="row grid-container movements__row">
+          <div class="movements__date">Date</div>
+          <div class="movements__type--withdrawal">Expenses</div>
+          <div class="movements__value">Amount</div>
+        </div>
+        <div class="row grid-container movements__row">
+          <div class="movements__date">Date</div>
+          <div class="movements__type--deposit">Deposit</div>
+          <div class="movements__value">Amount</div>
+        </div>
+      </section>
+      <button class="btn--sort--date">&downarrow; SORT BY DATE</button>
+      <button class="btn--sort--name">&downarrow; SORT BY NAME</button>
+      <button class="btn--sort--amount">&downarrow; SORT BY AMOUNT</button>
+    </main>
+
+    <script src="app/app.js"></script>
+  </body>
+</html>
