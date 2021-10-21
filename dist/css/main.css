@@ -1,11 +1,72 @@
 .container {
+  padding: 1rem 0.5rem;
   width: 100%;
-  max-width: 40rem; }
+  max-width: 40rem;
+  height: 100vh; }
+
+.px {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem; }
+
+.py {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem; }
+
+.grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: 'heading heading heading heading heading' 'input-a input-a input-b input-b input-b' 'summary summary summary summary summary' 'transaction transaction transaction transaction transaction';
+  gap: 0.5rem;
+  margin: 0.5rem 0; }
+  .grid .item {
+    background-color: #252422;
+    border-radius: 0.5rem; }
+    .grid .item-heading {
+      grid-area: heading; }
+    .grid .item-a {
+      grid-area: input-a; }
+    .grid .item-b {
+      grid-area: input-b; }
+    .grid .item-c {
+      grid-area: summary; }
+    .grid .item-d {
+      grid-area: transaction;
+      height: 50vh; }
 
 .grid-container {
   display: grid;
+  grid-gap: 0.5rem;
   width: 100%;
-  grid-template-columns: 1fr 3fr 1fr; }
+  grid-template-columns: 1fr 2.75fr 2fr; }
+
+.table-header {
+  font-size: 1.2rem; }
+
+.icon {
+  font-size: 1rem; }
+  .icon-dark {
+    color: #252422;
+    padding: 0.15rem 0.6rem;
+    background-color: #fffcf2;
+    border-radius: 1rem; }
+  .icon-light {
+    color: #fffcf2;
+    padding: 0 0.15rem; }
+
+.btn {
+  background: none;
+  text-decoration: none;
+  outline: none;
+  border: none; }
+
+.form__input {
+  border: none;
+  background-color: #fffcf2;
+  width: 5rem;
+  border-radius: 0.25rem; }
 
 *,
 *::before,
@@ -15,12 +76,21 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #252422;
+  background-color: #403d39;
   line-height: 1.5;
   color: #fffcf2;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px; }
 
 .app {
-  background-color: #252422;
-  margin: 2rem auto; }
+  background-color: #403d39; }
+
+.text-heading {
+  color: #eb5e28; }
+
+h3 {
+  font-size: 1.25rem; }
+
+.form-label {
+  display: block;
+  font-size: 1rem; }

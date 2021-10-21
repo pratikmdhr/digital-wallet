@@ -1,43 +1,35 @@
 //=========================================================
 // Accounts
 
-const account1 = {
-  accountName: 'Personal',
-  movements: [
-    { date: '2021-09-09T17:01:17.194Z', name: 'Wallet Loaded', amount: 1000 },
-    { date: '2021-09-11T23:36:17.929Z', name: 'Restaurant', amount: -100 },
-    { date: '2021-09-13T10:51:36.790Z', name: 'Grocery', amount: -500 },
-  ],
+class Account {
+  constructor(accountName, movements) {
+    this.accountName = accountName;
+    this.movements = movements;
+  }
   movementAmounts() {
     return this.movements.map((mov) => mov.amount);
-  },
+  }
   movementDates() {
     return this.movements.map((mov) => mov.date);
-  },
+  }
   balance() {
     return this.movementAmounts().reduce((accum, cur) => accum + cur, 0);
-  },
-};
+  }
+}
 
-const account2 = {
-  accountName: 'Business',
-  movements: [
-    { date: '2021-09-09T17:01:17.194Z', name: 'Wallet Loaded', amount: 1000 },
-    { date: '2021-09-11T23:36:17.929Z', name: 'Restaurant', amount: -100 },
-    { date: '2021-09-13T10:51:36.790Z', name: 'Grocery', amount: -500 },
-  ],
-  movementAmounts() {
-    return this.movements.map((mov) => mov.amount);
-  },
-  movementDates() {
-    return this.movements.map((mov) => mov.date);
-  },
-  balance() {
-    return this.movementAmounts().reduce((accum, cur) => accum + cur, 0);
-  },
-};
+const account1 = new Account('Personal', [
+  { date: '2021-09-09T17:01:17.194Z', name: 'Wallet Loaded', amount: 1000 },
+  { date: '2021-09-11T23:36:17.929Z', name: 'Restaurant', amount: -100 },
+  { date: '2021-09-13T10:51:36.790Z', name: 'Grocery', amount: -500 },
+]);
 
-const accounts = [account1, account2];
+const account2 = new Account('Business', [
+  { date: '2021-09-09T17:01:17.194Z', name: 'Wallet Loaded', amount: 1000 },
+  { date: '2021-09-11T23:36:17.929Z', name: 'Restaurant', amount: -100 },
+  { date: '2021-09-13T10:51:36.790Z', name: 'Grocery', amount: -500 },
+]);
+
+const accountsArr = [account1, account2];
 
 // Elements
 
@@ -75,8 +67,13 @@ const formattedCurrency = function (amount) {
 };
 
 const formatMovementDate = function (date) {
-  const locale = 'en-CA';
-  return new Intl.DateTimeFormat(locale).format(date);
+  const locale = 'en-US';
+  const options = {
+    // year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  };
+  return new Intl.DateTimeFormat(locale, options).format(date);
 };
 
 const displayMovements = function (
@@ -86,7 +83,6 @@ const displayMovements = function (
   sortAmount = false
 ) {
   containerMovements.innerHTML = '';
-  console.log(sortDate, sortName, sortAmount);
   let movs = acc.movements;
 
   if (sortDate) {
@@ -115,8 +111,6 @@ const displayMovements = function (
     sortAmountToggler = !sortAmountToggler;
   }
 
-
-  console.log(movs);
   movs.forEach(function (mov, i) {
     const type = mov.amount > 0 ? 'deposit' : 'withdrawal';
     const date = new Date(mov.date);
@@ -178,17 +172,17 @@ const updateUI = function (accs) {
 
 let currentAccount;
 function init() {
-  currentAccount = accounts[0];
-  const now = new Date();
-  const options = {
-    hour: 'numeric',
-    minute: 'numeric',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  };
-  const locale = navigator.language;
-  labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(now);
+  currentAccount = accountsArr[0];
+  // const now = new Date();
+  // const options = {
+  //   hour: 'numeric',
+  //   minute: 'numeric',
+  //   day: 'numeric',
+  //   month: 'long',
+  //   year: 'numeric',
+  // };
+  // const locale = navigator.language;
+  // labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(now);
 
   //Update UI
   updateUI(currentAccount);

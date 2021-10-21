@@ -4,20 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/41298f9aef.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/main.css" />
     <title>Document</title>
   </head>
   <body>
     <main class="container app">
-      <section class="input__details">
-        <h1>Wallet</h1>
-
-        <div class="operation operation--load-wallet">
-          <h3>Load Wallet</h3>
+      <div class="grid">
+        <h1 class="item item-heading px py text-heading">Wallet</h1>
+        <div class="item item-a px py operation operation--load-wallet">
+          <h3 class="text-heading">Load Wallet</h3>
           <form class="form form--load-wallet">
-            <label
-              for="load-amount"
-              class="form__label form__label--load-amount"
+            <label for="load-amount" class="form-label form__label--load-amount"
               >Amount</label
             >
             <input
@@ -25,63 +26,67 @@
               class="form__input form__input--load-amount"
               name="load-amount"
             />
-            <button class="form__btn form__btn--load-amount">&rarr;</button>
+            <button class="btn btn-light form__btn form__btn--load-amount">
+              <i class="icon icon-dark fas fa-arrow-right"></i>
+            </button>
           </form>
         </div>
 
-        <div class="operation operation--spending">
-          <h3>Expense Detail</h3>
+        <div class="item item-b px py operation operation--spending">
+          <h3 class="text-heading">Add Expense</h3>
           <form class="form form--spending">
-            <label for="spend-name" class="form__label">Spending</label>
+            <label for="spend-name" class="form-label">Spending</label>
             <input
               type="text"
               class="form__input form__input--spend-name"
               name="spend-name"
             />
-            <label for="spend-amount" class="form__label">Amount</label>
+            <label for="spend-amount" class="form-label">Amount</label>
             <input
               type="number"
               class="form__input form__input--spend-amount"
               name="spend-amount"
             />
-            <button class="form__btn form__btn--spending">&rarr;</button>
+            <button class="btn btn-light form__btn form__btn--spending">
+              <i class="icon icon-dark fas fa-arrow-right"></i>
+            </button>
           </form>
         </div>
-      </section>
 
-      <div class="balance">
-        <div>
-          <p class="balance__label">Current balance</p>
-          <p class="balance__date">
-            As of <span class="date">05/03/2037</span>
-          </p>
+        <div class="item item-c px py balance">
+          <p class="text-heading balance__label">Current balance</p>
+
+          <p class="balance__value">$0,000</p>
+          <div class="summary">
+            <p class="text-heading summary__label">Total Deposits</p>
+            <p class="summary__value summary__total-load-amount">$0,000</p>
+            <p class="text-heading summary__label">Total Expenses</p>
+            <p class="summary__value summary__total-spend-amount">$0,000</p>
+          </div>
         </div>
-        <p class="balance__value">$0,000</p>
-        <div class="summary">
-          <p class="summary__label">Total Deposits</p>
-          <p class="summary__value summary__total-load-amount">$0,000</p>
-          <p class="summary__label">Total Expenses</p>
-          <p class="summary__value summary__total-spend-amount">$0,000</p>
-        </div>
+
+        <section class="item item-d px py movements-table">
+          <div class="grid-container table-header">
+            <div class="text-heading">
+              Date<button class="btn btn--sort--date">
+                <i class="icon icon-light fas fa-sort"></i>
+              </button>
+            </div>
+            <div class="text-heading">
+              Transaction<button class="btn btn--sort--name">
+                <i class="icon icon-light fas fa-sort"></i>
+              </button>
+            </div>
+            <div class="text-heading">
+              Amount<button class="btn btn--sort--amount">
+                <i class="icon icon-light fas fa-sort"></i>
+              </button>
+            </div>
+          </div>
+          <div class="movements"></div>
+        </section>
       </div>
-
-      <section class="movements">
-        <div class="row grid-container movements__row">
-          <div class="movements__date">Date</div>
-          <div class="movements__type--withdrawal">Expenses</div>
-          <div class="movements__value">Amount</div>
-        </div>
-        <div class="row grid-container movements__row">
-          <div class="movements__date">Date</div>
-          <div class="movements__type--deposit">Deposit</div>
-          <div class="movements__value">Amount</div>
-        </div>
-      </section>
-      <button class="btn--sort--date">&downarrow; SORT BY DATE</button>
-      <button class="btn--sort--name">&downarrow; SORT BY NAME</button>
-      <button class="btn--sort--amount">&downarrow; SORT BY AMOUNT</button>
     </main>
-
     <script src="app/app.js"></script>
   </body>
 </html>

@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg-secondary;
+  line-height: 1.5;
+  color: $text-primary;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+.app {
+  background-color: $bg-secondary;
+}
+
+.text-heading {
+  color: $text-secondary;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 1rem;
+}
